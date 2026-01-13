@@ -1,0 +1,934 @@
+:root {
+    --primary-color: #0F2027;
+    --secondary-color: #203A43;
+    --accent-color: #D4AF37;
+    /* Gold */
+    --text-light: #F8F9FA;
+    --text-dark: #1A1A1A;
+    --overlay-color: rgba(0, 0, 0, 0.6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+nav.scrolled {
+    background: var(--primary-color);
+    padding: 1rem 5%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-light);
+}
+
+.logo span {
+    color: var(--accent-color);
+}
+
+/* Logo Image Styles */
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    gap: 15px;
+    /* Jarak antara logo gambar dan teks */
+}
+
+.logo-img {
+    height: 50px;
+    /* Atur tinggi logo agar pas di navbar */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+/* Penyesuaian ukurang logo di mobile ada di bagian media query bawah */
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    bottom: -5px;
+    left: 0;
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+
+    /* --- TEMPAT GANTI BACKGROUND UTAMA (HALAMAN DEPAN) --- */
+    /* Hapus tanda komentar (arsiran / *) di bawah ini untuk pakai foto sendiri dari folder images: */
+    background: linear-gradient(var(--overlay-color), var(--overlay-color)), url('images/hero-bg.jpg') no-repeat center center/cover;
+
+    /* Background Default (Online): */
+    /* background: linear-gradient(var(--overlay-color), var(--overlay-color)), url('https://images.unsplash.com/photo-1571407970349-bc9n1b49h79a?q=80&w=2000') no-repeat center center/cover; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-light);
+    padding: 0 1rem;
+}
+
+
+/* Culture Section */
+.culture-section {
+    background-color: white;
+    padding: 5rem 10%;
+    /* --- TEMPAT GANTI BACKGROUND CULTURE --- */
+    /* Uncomment baris di bawah untuk menambahkan gambar background: */
+    /* background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('images/culture-bg.jpg') no-repeat center center/cover; */
+}
+
+/* Services Section */
+/* Services Section */
+.services-section {
+    /* Previously solid color: background: var(--primary-color); */
+    /* Using background image as requested ("jangan memakai backround warna abu tapi pakai backround menggunakan gambar") */
+    background: linear-gradient(rgba(15, 32, 39, 0.9), rgba(15, 32, 39, 0.9)), url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021') no-repeat center center/cover;
+    color: var(--text-light);
+
+    /* --- TEMPAT GANTI BACKGROUND SERVICES --- */
+    /* Jika ingin pakai foto sendiri, uncomment baris bawah dan comment baris atas: */
+    /* background: linear-gradient(rgba(15, 32, 39, 0.9), rgba(15, 32, 39, 0.9)), url('images/services-bg.jpg') no-repeat center center/cover; */
+}
+
+.services-section .section-title {
+    color: var(--accent-color);
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.service-card h3 {
+    /* "teks 'paket wisata' 'pemandu ahli' 'jasa porter' ubah menjadi warna kuning" */
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Contact Section */
+.contact-section {
+    text-align: center;
+    padding: 5rem 10%;
+
+    /* --- TEMPAT GANTI BACKGROUND CONTACT --- */
+    /* Uncomment baris di bawah untuk menambahkan gambar background: */
+    /* background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('images/contact-bg.jpg') no-repeat center center/cover; */
+}
+
+/* Footer Container - Optional if you want footer bg image */
+footer {
+    background: #0b1114;
+    color: var(--text-light);
+    padding: 3rem 5%;
+    text-align: center;
+    /* --- TEMPAT GANTI BACKGROUND FOOTER --- */
+    /* background: url('images/footer-bg.jpg') no-repeat center center/cover; */
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    animation: fadeInDown 1s ease;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease 0.5s forwards;
+    opacity: 0;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    font-weight: 600;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    border: 2px solid var(--accent-color);
+    animation: fadeInUp 1s ease 0.8s forwards;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.cta-btn:hover {
+    background: transparent;
+    color: var(--text-light);
+}
+
+/* Language Toggle */
+
+
+/* Sections General Styling */
+section {
+    padding: 5rem 10%;
+    /* Increased from 5% to 10% for better spacing on laptops */
+    max-width: 1600px;
+    /* Prevent too wide stretching on ultra-wide screens */
+    margin: 0 auto;
+    /* Center the section content if max-width is hit */
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+/* Note: Padding for specific sections is handled in their respective classes (.culture-section, etc) */
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--accent-color);
+}
+
+/* 7 Summits Grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-content .elevation {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    display: block;
+}
+
+/* Beaches Masonry-ish */
+.beaches-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.beach-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 280px;
+    cursor: pointer;
+}
+
+.beach-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.beach-card:hover img {
+    transform: scale(1.1);
+}
+
+.beach-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+    padding: 1.5rem;
+    color: white;
+    transform: translateY(100px);
+    /* Initially hidden title */
+    transition: 0.3s;
+}
+
+.beach-card:hover .beach-overlay {
+    transform: translateY(0);
+}
+
+/* Culture Section */
+.culture-split {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 3rem;
+}
+
+.culture-img {
+    flex: 1 1 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 15px 15px 0 var(--accent-color);
+}
+
+.culture-img img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.culture-text {
+    flex: 1 1 350px;
+}
+
+.culture-text h3 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+/* Services */
+
+
+.service-card:hover {
+    background: var(--accent-color);
+    transform: scale(1.05);
+}
+
+.service-card:hover h3,
+.service-card:hover p {
+    color: var(--primary-color);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    transition: 0.3s;
+}
+
+.service-card:hover .service-icon {
+    color: var(--primary-color);
+}
+
+/* Footer */
+
+
+/* Mobile Nav */
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background: var(--text-light);
+    margin: 5px;
+    transition: 0.3s;
+}
+
+/* Keyframes */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 90%;
+        /* Scale down text slightly */
+    }
+
+    nav {
+        padding: 1rem 5%;
+    }
+
+    .logo-img {
+        height: 40px;
+    }
+
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 100vh;
+        top: 0vh;
+        background: var(--primary-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        /* Full width for better mobile UX */
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        padding-top: 0;
+        z-index: 999;
+    }
+
+    .nav-links.nav-active {
+        transform: translateX(0%);
+    }
+
+
+
+    .burger {
+        display: block;
+        z-index: 1001;
+    }
+
+    .burger.toggle div:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .burger.toggle div:nth-child(2) {
+        opacity: 0;
+    }
+
+    .burger.toggle div:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    /* Fix image aspect ratios on mobile to avoid squishing */
+    .card img,
+    .beach-card {
+        height: 200px;
+    }
+
+    .culture-img {
+        flex: 1 1 100%;
+        box-shadow: 10px 10px 0 var(--accent-color);
+        margin-bottom: 1rem;
+    }
+
+    .culture-split {
+        gap: 2rem;
+    }
+
+    .package-card.popular {
+        transform: scale(1);
+        z-index: 0;
+    }
+}
+
+/* Social Media Buttons */
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+}
+
+.social-btn i {
+    font-size: 1.2rem;
+}
+
+.social-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.social-btn.instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.social-btn.facebook {
+    background: #1877f2;
+}
+
+.social-btn.whatsapp {
+    background: #25d366;
+}
+
+/* Mobile adjustments for social buttons */
+@media screen and (max-width: 768px) {
+    .social-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .contact-container {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .social-icons {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+}
+
+/* Packages Section */
+.packages-section {
+    background-color: #f9f9f9;
+}
+
+.package-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid #eee;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.package-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-color);
+}
+
+.package-card.popular {
+    transform: scale(1.05);
+    border: 2px solid var(--accent-color);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+    z-index: 1;
+}
+
+.package-card.popular:hover {
+    transform: scale(1.08) translateY(-10px);
+}
+
+.popular-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-bottom-left-radius: 15px;
+}
+
+.package-header h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.package-duration {
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.package-price {
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+}
+
+.currency {
+    font-size: 1rem;
+    vertical-align: top;
+    font-weight: 600;
+}
+
+.amount {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.per {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.package-features {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+    /* Pushes button to bottom */
+}
+
+.package-features li {
+    margin-bottom: 0.8rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.package-features i {
+    color: var(--accent-color);
+}
+
+.package-btn {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Black w/ opacity */
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    animation: slideUp 0.4s ease;
+}
+
+.close-btn {
+    color: #fff;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+}
+
+#modal-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.modal-text {
+    padding: 2rem;
+    text-align: left;
+}
+
+#modal-title {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    border-bottom: 2px solid var(--accent-color);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+#modal-desc {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cta-btn.small {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.whatsapp-btn {
+    background: #25d366;
+    border-color: #25d366;
+    color: white;
+}
+
+.whatsapp-btn:hover {
+    color: white;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .modal-content {
+        margin: 10% auto;
+        width: 95%;
+    }
+
+    #modal-img {
+        height: 200px;
+    }
+
+    .modal-text {
+        padding: 1.5rem;
+    }
+
+    #modal-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Modal Detail Styling */
+.long-desc {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 1.5rem;
+    text-align: justify;
+}
+
+.highlights {
+    background: #fff;
+    margin-bottom: 2rem;
+}
+
+.highlights h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.highlights ul {
+    list-style: none;
+}
+
+.highlights li {
+    margin-bottom: 0.5rem;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Package Info Box (Bottom) */
+.package-info-box {
+    background: #f8f9fa;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+    margin-top: 1rem;
+}
+
+.package-header-modal {
+    background: var(--primary-color);
+    color: var(--accent-color);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.package-header-modal h4 {
+    margin: 0;
+    color: var(--accent-color);
+    /* Force yellow */
+    font-size: 1.1rem;
+}
+
+.package-content-modal {
+    padding: 1.5rem;
+}
+
+.price-tag {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.package-includes {
+    color: #555;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.note {
+    font-size: 0.8rem;
+    color: #999;
+    font-style: italic;
+    margin: 0;
+}
